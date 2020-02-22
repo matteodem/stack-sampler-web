@@ -1,0 +1,38 @@
+{
+  "name": "stack-sampler-web",
+  "version": "1.0.0",
+  "description": "Stack up to 6 samples to play at the same time for happy accidents",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matteodem/stack-sampler-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matteodem/stack-sampler-web/issues"
+  },
+  "homepage": "https://github.com/matteodem/stack-sampler-web#readme",
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.1.1",
+    "autoprefixer": "^9.7.4",
+    "parcel-bundler": "^1.12.4",
+    "postcss": "^7.0.27",
+    "postcss-modules": "^1.5.0",
+    "sass": "^1.25.0",
+    "typescript": "^3.8.2"
+  },
+  "dependencies": {
+    "jszip": "^3.2.2",
+    "jszip-utils": "^0.1.0",
+    "style": "0.0.3",
+    "tailwindcss": "^1.2.0",
+    "vue": "^2.6.11",
+    "vuex": "^3.1.2"
+  }
+}

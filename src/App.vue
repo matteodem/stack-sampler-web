@@ -12,6 +12,8 @@
       <div class="lg:w-3/12 pr-3 float-left mb-2 lg:mb-0">
         <h2 class="font-bold">Samples</h2>
 
+        <div v-if="sampleKeys.length === 0" class="text-gray-400 text-ms">Loading...</div>
+
         <div style="max-height: 220px" class="overflow-auto">
           <div v-for="key in sampleKeys" class="text-xs cursor-pointer inline-block mr-2 lg:mr-0 lg:block">
             <div v-text="key" class="my-1 pl-2 leading-relaxed bg-gray-300"></div>

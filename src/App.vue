@@ -45,6 +45,13 @@
             <span v-text="isPlaying ? 'Stop' : 'Randomize'"></span>
           </button>
 
+          <button class="mt-3 text-white font-bold p-3 bg-red-700"
+                  style="min-width: 120px"
+                  v-if="currentlyPlayingSamples.length > 0 && !isPlaying"
+                  @click="playSamples">
+            Replay
+          </button>
+
           <button class="mt-3 text-white font-bold p-3 bg-blue-500"
                   @click="exportSamples">
             <span v-text="isExporting ? 'Exporting...' : 'Export'"></span>
@@ -67,7 +74,7 @@
   import { sampleSize } from 'lodash/fp'
   import saveAs from 'jszip/vendor/FileSaver'
   import defaultSamples from './samples/*.wav'
-  
+
   // TODO: Sample Loading Mechanism
   // TODO: Use mp3s (less heavy) for e piano notes
   // TODO: Add default samples categories (E-Piano Notes => rework to have better random melodies? etc.)
@@ -101,14 +108,15 @@
     },
     methods: {
       playRandomSamples () {
-        const { isPlaying } = this
-
-        if (!isPlaying) {
+        if (!this.isPlaying) {
           this.currentlyPlayingSamples = sampleSize(6)(this.sampleKeys)
         }
 
+        this.playSamples()
+      },
+      playSamples () {
         this.currentlyPlayingSamples.forEach(
-          (isPlaying ? samples.stop : samples.start)
+          (this.isPlaying ? samples.stop : samples.start)
         )
 
         this.isPlaying = !this.isPlaying

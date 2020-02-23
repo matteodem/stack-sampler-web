@@ -73,7 +73,7 @@
   import JSZipUtils from 'jszip-utils'
   import { sampleSize } from 'lodash/fp'
   import saveAs from 'jszip/vendor/FileSaver'
-  import defaultSamples from './samples/*.wav'
+  import defaultSamples from './samples/*/*.mp3'
 
   // TODO: Sample Loading Mechanism
   // TODO: Use mp3s (less heavy) for e piano notes
@@ -90,7 +90,7 @@
       };
     },
     mounted () {
-      const sampleData = Object.entries(defaultSamples)
+      const sampleData = Object.entries(defaultSamples.epiano)
 
       const promises = sampleData.map(([key, samplePath]) => {
         return new Promise((resolve) => {

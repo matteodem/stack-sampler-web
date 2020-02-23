@@ -26,6 +26,7 @@
           <div :key="n"
                style="width: 200px; height: 80px"
                :class="{ 'text-gray-500 italic': !currentlyPlayingSamples[n -1] }"
+               @click="playSample(currentlyPlayingSamples[n -1])"
                class="border-gray-600 border-2 p-3 mr-3 mb-3 rounded cursor-pointer">
             <div v-if="!currentlyPlayingSamples[n -1]">
               Sample <span v-text="n"></span>
@@ -41,7 +42,7 @@
                   style="min-width: 120px"
                   :class="{'bg-red-400': isPlaying, 'bg-red-600': !isPlaying}"
                   @click="playRandomSamples">
-            <span v-text="isPlaying ? 'Stop' : 'Play Random'"></span>
+            <span v-text="isPlaying ? 'Stop' : 'Randomize'"></span>
           </button>
 
           <button class="mt-3 text-white font-bold p-3 bg-blue-500"
@@ -66,9 +67,10 @@
   import { sampleSize } from 'lodash/fp'
   import saveAs from 'jszip/vendor/FileSaver'
   import defaultSamples from './samples/*.wav'
-
-  // TODO: Load Samples Button
-  // TODO: Prepare default samples categories
+  
+  // TODO: Sample Loading Mechanism
+  // TODO: Use mp3s (less heavy) for e piano notes
+  // TODO: Add default samples categories (E-Piano Notes => rework to have better random melodies? etc.)
   // TODO: Add custom samples upload
   export default {
     data () {
@@ -110,6 +112,9 @@
         )
 
         this.isPlaying = !this.isPlaying
+      },
+      playSample (key) {
+        if (key) samples.start(key)
       },
       exportSamples () {
         this.isExporting = true

@@ -116,6 +116,7 @@
     },
     methods: {
       loadDefaultSamples (sampleKey) {
+        this.hasSamples = true
         const currentSampleMap = defaultSampleMap[sampleKey]
         const { folder, sampleAmount } = currentSampleMap
 
@@ -135,7 +136,6 @@
           .then(resolved => {
             this.sampleKeys = resolved
             this.currentSampleKey = sampleKey
-            this.hasSamples = true
           })
       },
       playRandomSamples () {

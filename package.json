@@ -28,7 +28,7 @@
     "typescript": "^3.8.2"
   },
   "dependencies": {
-    "jszip": "^3.2.2",
+    "jszip": "^3.7.0",
     "jszip-utils": "^0.1.0",
     "style": "0.0.3",
     "tailwindcss": "^1.2.0",
